@@ -3,12 +3,66 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+    
+    .about-me {
+        flex-direction: column; /* Stack about me elements */
+        padding: 50px; /* Adjust padding for smaller screens */
+    }
+
+    .social-icons {
+        left: 5px; /* Reduce distance from the left side */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Stack nav items */
+    }
+
+    header nav ul li {
+        margin: 10px 0; /* Space between nav items */
+    }
+
+    form input, form textarea {
+        width: 100%; /* Full width for inputs */
+    }
+}
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #2C3E50; /* Background color */
+    color: #2C3E50;
     line-height: 1.6;
+    position: relative; /* Needed for absolute positioning of social icons */
+}
+
+.social-icons {
+    position: fixed; /* Fix it on the left side */
+    left: 10px; /* Adjust the distance from the left side */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Centering trick */
+    display: flex;
+    flex-direction: column; /* Align the icons in a column */
+    gap: 20px; /* Space between the icons */
+}
+
+.social-icons a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Icon color */
+    font-size: 2rem; /* Size of the icons */
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #3498DB; /* Change color on hover */
+}
+
+.social-icons i {
+    display: block; /* Ensure each icon behaves as a block element */
 }
 
 header {
@@ -20,60 +74,60 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 100px;
+    margin: 0; /* Add this line to remove the gap */
 }
 
+
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Increase the header title font size */
     margin-bottom: 0.5rem;
 }
 
-nav ul {
+header nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 1rem;
+    padding: 0;
 }
 
-nav ul li {
+header nav ul li {
     margin: 0 20px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem; /* Increase the font size of nav items */
     transition: color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
-    color: #2980B9;
+header nav ul li a:hover {
+    color: #e5e551;
 }
 
+
 section {
-    padding: 4rem 2rem;
+    padding: 0px;
     text-align: center;
-    background-color: #ecf0f1;
+    background-color: #2C3E50;
     margin-bottom: 2rem;
-    border-radius: 8px;
+    border-radius: 0px;
+    margin: 0;
 }
 
 section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #2C3E50;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 2rem;    
+    color: #e5e551;
 }
 
 section p {
     font-size: 1.1rem;
     color: #34495E;
-}
-
-.project {
-    margin-bottom: 2.5rem;
-    background-color: #fff;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 .project h3 {
@@ -136,15 +190,301 @@ footer p {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two columns */
+    gap: 20px; /* Space between grid items */
+    margin: 20px; /* Margin around the grid */
 }
 
 .project {
-    background-color: #fff;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
+    background-color: #f9f9f9; /* Background color for each project */
+    border: 1px solid #ccc; /* Border for each project */
+    padding: 20px; /* Padding inside each project */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
+
+.projects-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    padding: 4rem 2rem; /* Same padding as the about section */
+    background-color: #2C3E50; /* Use the same background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 2rem; /* Space below the section */
+    max-width: 1200px; /* Center the section */
+    margin: 0 auto; /* Center the section */
+    color: #fff; /* Text color for consistency */
+}
+
+.projects-grid {
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two columns */
+    gap: 20px; /* Space between grid items */
+    margin: 20px; /* Margin around the grid */
+}
+
+.about-me {
+    display: flex;
+    padding: 100px; /* Increase padding for more space inside */
+    max-width: 1200px; /* Set max-width to a larger value */
+    margin: 0 auto; /* Center the section */
+    background-color: #2C3E50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+
+.about-header {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center the items */
+}
+
+.custom-line {
+    width: 200px; /* Set the desired width of the line */
+    height: 2px; /* Set the height of the line */
+    background-color: #e5e551; /* Set the color of the line */
+    border: none; /* Remove default border */
+    margin-left: 30px; /* Space between the heading and the line */
+    margin-top: -20px; /* Move the line upward (adjust the value as needed) */
+}
+
+
+.about-me h2 {
+    font-size: 2rem;
+    color: #e5e551;
+}
+
+.about-me p {
+    font-size: 1.1rem;
+    padding-bottom: 2%;
+    color: #fff;
+}
+
+.about-me ul {
+    list-style-type: none;
+    padding-bottom: 2%;
+    padding: 0;
+}
+
+.about-me li {
+    font-size: 1rem;
+    padding-bottom: 2%;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start; /* Align items at the start */ 
+}
+
+.left {
+    flex: 1;
+}
+
+.left img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.right {
+    flex: 1;
+}
+
+.download-resume {
+    padding: 15px 30px;
+    background-color: transparent;
+    color: #e5e551;
+    border: 2px solid #e5e551;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.download-resume:hover {
+    background-color: #2980B9;
+    color: white;
+}
+
+.checkbox {
+    accent-color: green;
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.green-icon {
+    color: green;
+    margin-right: 10px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.right {
+    text-align: left;
+    margin-left: 0;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+    max-width: 1200px; /* Set a max width */
+    margin: 0 auto; /* Centering the container */
+    background-color: #2C3E50; /* Match the background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Text color */
+}
+
+.container-title {
+    font-size: 2rem;
+    color: #e5e551; /* Title color */
+    margin-bottom: 1rem;
+}
+
+.experience-item, .education-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #bdc3c7; /* Add a bottom border for separation */
+    padding-bottom: 1rem; /* Add space below each item */
+}
+
+.experience-title, .education-title {
+    font-size: 1.5rem;
+    color: #e5e551; /* Title color */
+}
+
+.experience-company, .education-institution {
+    font-size: 1.2rem;
+    color: #ecf0f1; /* Lighter color for company/institution */
+}
+
+.experience-date, .education-date {
+    font-size: 1rem;
+    color: #bdc3c7; /* Even lighter color for dates */
+}
+
+.experience-description {
+    font-size: 1rem;
+    color: #ecf0f1; /* Match description color */
+    margin-top: 0.5rem;
+}
+
+.experience-header {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center the items */
+}
+
+.custom-line-experience {
+    width: 200px; /* Set the desired width of the line */
+    height: 2px; /* Set the height of the line */
+    background-color: #e5e551; /* Set the color of the line */
+    border: none; /* Remove default border */
+    margin-left: 10px; /* Space between the heading and the line */
+    margin-top: -10px; /* Move the line upward (adjust the value as needed) */
+}
+
+.vertical-line {
+    width: 2px; /* Width of the vertical line */
+    background-color: #e5e551; /* Color of the line */
+    height: auto; /* Set to auto to adapt to content height */
+    flex-shrink: 0; /* Prevent it from shrinking */
+    margin: 0 20px; /* Space around the line */
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Center the container */
+    background-color: #2C3E50; /* Match background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Add padding inside the container */
+    align-items: right;
+}
+
+.education-item {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 15px; /* Space between items */
+}
+
+.college-image {
+    width: 700px; /* Set width of the image */
+    height: 400px; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.education-details {
+    color: #e5e551; /* Text color */
+}
+.education-details h3 {
+    color: #fff; /* Text color */
+
+}
+.heading-courses{
+    color: #e5e551; 
+}
+
+.education-year, .education-specialization, .education-gpa {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Font size for details */
+    color: #ecf0f1; /* Lighter color for details */
+}
+
+.courses-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 20px; /* Padding for the container */
+    max-width: 500px; /* Set a maximum width */
+    color: #e5e551;
+    text-align: right;
+}
+
+.courses-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 20px; /* Remove default padding */
+    text-align: right;
+
+}
+
+.courses-list li {
+    color: #fff; /* Text color for courses */
+    margin: 5px 0; /* Space between list items */
+    text-align: right;
+}
+
+.contact-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 20px; /* Padding for the container */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the container */
+    color: #fff; /* Text color */
+}
+
+.contact-container h2 {
+    margin-top: 0; /* Remove top margin */
+    font-size: 1.5em; /* Font size for the heading */
+}
+
+.contact-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.contact-list li {
+    margin: 10px 0; /* Space between list items */
+}
+
+.contact-list a {
+    color: #00f; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.contact-list a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
