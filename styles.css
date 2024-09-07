@@ -4,32 +4,45 @@
     box-sizing: border-box;
 }
 /* Add media queries for responsiveness */
+/* For screens with a width of 768px or smaller */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* Single column layout on smaller screens */
-    }
-    
-    .about-me {
-        flex-direction: column; /* Stack about me elements */
-        padding: 50px; /* Adjust padding for smaller screens */
-    }
-
-    .social-icons {
-        left: 5px; /* Reduce distance from the left side */
+    .nav-links {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column; /* Stack nav items vertically */
+        background-color: #fff; /* Optional: Background color for dropdown */
+        position: absolute; /* Make the menu dropdown */
+        top: 100px; /* Position it below the header */
+        left: 0;
+        width: 100%;
+        padding: 20px 0; /* Add padding for dropdown links */
     }
 
-    header nav ul {
-        flex-direction: column; /* Stack nav items */
+    .nav-links.active {
+        display: flex; /* Show the nav links when active */
     }
 
-    header nav ul li {
-        margin: 10px 0; /* Space between nav items */
+    .nav-toggle {
+        display: block; /* Show the hamburger icon */
+        background: none;
+        border: none;
+        font-size: 2rem; /* Size of the icon */
+        cursor: pointer;
+        color: #fff;
+        position: absolute;
+        top: 35px; /* Position it inside the header */
+        right: 20px;
     }
 
-    form input, form textarea {
-        width: 100%; /* Full width for inputs */
+    .nav-toggle:focus {
+        outline: none; /* Remove outline on focus */
     }
 }
+
+/* Hide the hamburger icon on larger screens */
+.nav-toggle {
+    display: none; /* Hidden by default */
+}
+
 
 
 body {
@@ -130,10 +143,6 @@ section p {
     color: #34495E;
 }
 
-.project h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
 
 form {
     display: flex;
@@ -189,46 +198,12 @@ footer p {
     margin: 0;
 }
 
-.projects-grid {
-    display: grid; /* Use CSS Grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Create two columns */
-    gap: 20px; /* Space between grid items */
-    margin: 20px; /* Margin around the grid */
-}
-
-.project {
-    background-color: #f9f9f9; /* Background color for each project */
-    border: 1px solid #ccc; /* Border for each project */
-    padding: 20px; /* Padding inside each project */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-}
-
-.projects-container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    padding: 4rem 2rem; /* Same padding as the about section */
-    background-color: #2C3E50; /* Use the same background color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin-bottom: 2rem; /* Space below the section */
-    max-width: 1200px; /* Center the section */
-    margin: 0 auto; /* Center the section */
-    color: #fff; /* Text color for consistency */
-}
-
-.projects-grid {
-    display: grid; /* Use CSS Grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Create two columns */
-    gap: 20px; /* Space between grid items */
-    margin: 20px; /* Margin around the grid */
-}
-
 .about-me {
     display: flex;
-    padding: 100px; /* Increase padding for more space inside */
-    max-width: 1200px; /* Set max-width to a larger value */
-    margin: 0 auto; /* Center the section */
+    flex-direction: row; /* Use row layout by default */
+    padding: 50px; /* Decrease padding for smaller devices */
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: #2C3E50;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -236,6 +211,31 @@ footer p {
     color: #333;
 }
 
+.left {
+    flex: 1;
+}
+
+.left img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.right {
+    flex: 1;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .about-me {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 20px; /* Adjust padding */
+    }
+
+    .left, .right {
+        width: 100%; /* Ensure both sections take full width */
+        text-align: center; /* Center text on smaller screens */
+    }
+}
 
 .about-header {
     display: flex; /* Use flexbox to align items */
@@ -279,19 +279,6 @@ footer p {
     display: flex;
     gap: 50px;
     align-items: flex-start; /* Align items at the start */ 
-}
-
-.left {
-    flex: 1;
-}
-
-.left img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.right {
-    flex: 1;
 }
 
 .download-resume {
@@ -414,9 +401,9 @@ footer p {
 }
 
 .college-image {
-    width: 700px; /* Set width of the image */
-    height: 400px; /* Maintain aspect ratio */
     margin-right: 20px; /* Space between image and text */
+    width: 50%;
+    height: auto;
 }
 
 .education-details {
@@ -488,3 +475,122 @@ footer p {
     text-decoration: underline; /* Underline on hover */
 }
 
+.projects-container {
+    width: 90%; /* Adjust width to be responsive */
+    margin: 0 auto; /* Center the content */
+    padding: 20px 0;
+}
+
+.projects-grid {
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two columns */
+    gap: 20px; /* Space between grid items */
+    margin: 20px; /* Margin around the grid */
+}
+
+.project {
+    background-color: #f9f9f9; /* Background color for each project */
+    border: 1px solid #ccc; /* Border for each project */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    padding: 10px; /* Reduced padding */
+    position: relative; /* For overlay positioning */
+    overflow: hidden; /* Hide overflow from the project box */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    height: 300px; /* Fixed height for the project box */
+}
+
+/* Hover effect to enlarge the project box */
+.project:hover {
+    transform: scale(1.05); /* Slightly enlarge the project */
+}
+
+/* Responsive text inside the project */
+.project h1 {
+    font-size: 1.5rem; /* Font size for project title */
+    margin-bottom: 5px; /* Space between title and image */
+    color: #2C3E50; /* Title color */
+    text-align: center; /* Center the title */
+}
+
+.project img {
+    width: 50%; /* Set image width to 100% to fill the container */
+    height: 60%; /* Keep image aspect ratio */
+    border-radius: 8px; /* Rounded corners for images */
+    margin: 5px 0; /* Space between image and description */
+}
+
+.project p {
+    color: #34495E; /* Description text color */
+    text-align: center; /* Center the description */
+    font-size: 1rem; /* Font size for description */
+    margin-top: 5px; /* Space above the description */
+}
+
+/* Adding background images for each project */
+
+
+/* Overlay to improve text readability over background images */
+.project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); /* Semi-transparent white overlay */
+    z-index: 0;
+}
+
+.project h1,
+.project p {
+    position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+}
+
+/* Media Queries for Smaller Devices */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Stack projects in a single column on smaller screens */
+    }
+
+    .project {
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+}
+
+/* Tablet and smaller devices */
+@media (max-width: 768px) {
+    .project {
+        padding: 10px; /* Adjust padding */
+    }
+
+    .project h1 {
+        font-size: 1.2rem; /* Adjusted font size for project title */
+    }
+
+    .project p {
+        font-size: 0.9rem; /* Adjusted font size for description */
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .projects-container {
+        width: 100%; /* Take full width on small screens */
+        padding: 10px;
+    }
+
+    .project {
+        padding: 5px; /* Further reduced padding */
+        height: auto; /* Allow height to adjust on mobile */
+    }
+
+    .project h1 {
+        font-size: 1rem; /* Adjusted font size for project title */
+    }
+
+    .project p {
+        font-size: 0.75rem; /* Adjusted font size for description */
+    }
+}

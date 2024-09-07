@@ -6,6 +6,8 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <div class="social-icons">
@@ -15,7 +17,13 @@
     </div>
     <header id="header">
         <nav>
-            <ul>
+            <!-- Hamburger menu icon -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
@@ -24,10 +32,10 @@
                         Resume <i class="fas fa-download"></i>
                     </a>
                 </li>
-                
             </ul>
         </nav>
     </header>
+    
     
     <section class="about-me" id="about-me">
         <div class="container">
@@ -57,25 +65,33 @@
         <div class="projects-container">
             <h2>Projects</h2>
             <div class="projects-grid">
-                <div class="project">
-                    <h3>Project 1</h3>
-                    <p>Project description.</p>
-                </div>
-                <div class="project">
-                    <h3>Project 2</h3>
-                    <p>Project description.</p>
-                </div>
-                <div class="project">
-                    <h3>Project 3</h3>
-                    <p>Project description.</p>
-                </div>
-                <div class="project">
-                    <h3>Project 4</h3>
-                    <p>Project description.</p>
-                </div>
+                <a href="https://github.com/sanchit-22/Grab_Your_Meal" class="project project-1" target="_blank">
+                    <h1>Grab Your Meal</h1>
+                    <img src="images/GYM.jpg" alt="Grab Your Meal Image">
+                    <p>A platform to automate all the activities in a canteen.</p>
+                </a>
+                <a href="https://github.com/sanchit-22/Advanced_OS/tree/main/2024201042_Assignment2" class="project project-2" target="_blank">
+                    <h1>POSIX Shell Implementation</h1>
+                    <img src="images/POSIX.jpg" alt="POSIX Shell Implementation Image">
+                    <p>Advanced Shell in C++ using system calls, customizable to user requirements.</p>
+                </a>
+                <a href="https://github.com/sanchit-22/Face_Mask_Detection" class="project project-3" target="_blank">
+                    <h1>Face Mask Detection</h1>
+                    <img src="images/face_mask_detection.jpg" alt="Face Mask Detection Image">
+                    <p>An algorithm developed to detect face masks with 96.7% accuracy.</p>
+                </a>
+                <a href="https://github.com/sanchit-22/MiniMax" class="project project-4" target="_blank">
+                    <h1>Project 4</h1>
+                    <img src="images/min_max.jpg" alt="Project 4 Image">
+                    <p>Project 4 description...</p>
+                </a>
             </div>
         </div>
     </section>
+    
+    
+    
+    
     
     <section id="education" class="education-container">
         <div class="container-education">
