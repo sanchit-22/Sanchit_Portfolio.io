@@ -498,6 +498,7 @@ footer p {
     overflow: hidden; /* Hide overflow from the project box */
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
     height: 300px; /* Fixed height for the project box */
+    text-decoration: none;
 }
 
 /* Hover effect to enlarge the project box */
