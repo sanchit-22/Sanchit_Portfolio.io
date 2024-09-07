@@ -595,3 +595,17 @@ footer p {
         font-size: 0.75rem; /* Adjusted font size for description */
     }
 }
+
+.left img {
+    width: 100%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .left img {
+        display: block; /* Ensure the image is displayed */
+        max-width: 100%; /* Prevent overflow */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
